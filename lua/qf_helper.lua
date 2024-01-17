@@ -172,6 +172,9 @@ M.cmd_filter = function(keep, range_start, range_end)
       lnum = cursor[1] - delta
     end
   end
+  if #newlist == 0 then
+    return
+  end
   util.set_list(qftype, newlist)
   lnum = math.min(math.max(1, lnum), #newlist)
   vim.api.nvim_win_set_cursor(0, { lnum, cursor[2] })
